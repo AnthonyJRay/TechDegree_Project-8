@@ -13,7 +13,7 @@ function loadUsers(){
 
       
       let output = '';
-      let randomUser = output;
+      let randomUser = '';
       for(let i in results) {
         output +=
         '<div class="'+"user "+"user-"+[i]+'">'+
@@ -26,17 +26,16 @@ function loadUsers(){
         '</div>';
         
         
-          // randomUser +=
-          // '<img class ="userImg" src=' +results[i].picture.large+ '>'
-          // image: results[i].picture.large,
-          // name: results[i].name.first+' '+results[i].name.last,
-          // email: results[i].email,
-          // cell: results[i].cell,
-          // address: results[i].location.street+' '+results[i].location.city+','+results[i].location.state,
-          // birthdate: results[i].dob.age
-        ;
+          randomUser += {
+          image: results[i].picture.large,
+          name: results[i].name.first+' '+results[i].name.last,
+          email: results[i].email,
+          cell: results[i].cell,
+          address: results[i].location.street+' '+results[i].location.city+','+results[i].location.state,
+          birthdate: results[i].dob.age
+      };
         randomUsers.push(randomUser);
-      }
+      };
       document.getElementById('usersList').innerHTML = output;
       const modal = document.querySelector('.modal');
       const card = document.querySelectorAll('.user');
@@ -44,10 +43,10 @@ function loadUsers(){
         for(let i = 0; i < card.length; i++){         // Loop through Nodelist
         card[i].addEventListener('click', () => {     // Add click even to each item in Nodelist
           modal.style.display = 'block';             // Change Modal display property to 'block'
-          modalContent.innerHTML = randomUser;
+          modalContent.innerHTML = randomUsers;
         });
-      }                                             //End of Modal Click Event
-    }
+      };                                            //End of Modal Click Event
+    };
   //  for (let i =0; i < randomUsers.length; i++) {
   //     console.log(randomUsers[i]);
   //     modalContent.innerHTML = randomUsers[i];
@@ -56,6 +55,9 @@ function loadUsers(){
   xhr.send();
 }
 loadUsers()
+
+
+
 
 
 
