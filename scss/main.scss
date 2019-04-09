@@ -1,46 +1,75 @@
+@import 'mixins.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+.container {
+  background-color: #f4f4f4;
+}
 .main-header {
   font-family: 'Merriweather', serif;
   font-size: 1rem;
   text-align: center;
-  margin: 20px;
+  padding: 20px;
+  @include med {
+    text-align: left;
+    padding-top: 50px;
+  }
 }
 
 #usersList {
   display: grid;
   grid-template-columns: 1fr;
+  grid-gap: 40px;
   text-align: center;
+  margin: 20px auto;
+  max-width: 90%;
+
+  @include med {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include lrg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .userInfo {
   text-align: left;
   list-style: none;
   margin: auto;
+  li {
+    font-size: .8rem;
+  }
 }
 
 .user {
   display: flex;
   font-family: 'Playfair Display', serif;
-  justify-self: center;
-  border: 1px black solid;
+  border: 2px #e2e2e2 solid;
+  background-color: white;
   border-radius: 5px;
-  margin: 10px auto;
-  padding: 10px;
-  width: 90%;
+  padding: 20px;
+  margin: auto;
+  width: 95%;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .userImg {
   border-radius: 50%;
-  margin: 10px;
-  width: 20%;
-  height: 20%;
+  margin-right: 20px;
+  height: 90px;
+  width: 90px;
 }
 
-h4 {
+h3 {
+  text-transform: capitalize;
+}
+
+.city {
   text-transform: capitalize;
 }

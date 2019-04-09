@@ -16,9 +16,9 @@ function loadUsers(){
         '<div class="'+"user "+"user-"+[i]+'">'+
         '<img class ="userImg" src=' +users.results[i].picture.large+ '>' +
         '<ul class="userInfo">'+
-        '<li><h4>'+users.results[i].name.first+' '+users.results[i].name.last+'</h4></li>'+
+        '<li><h3>'+users.results[i].name.first+' '+users.results[i].name.last+'</h3></li>'+
         '<li>'+users.results[i].email+'</li>'+
-        '<li>'+users.results[i].location.city+'</li>'+
+        '<li class="city">'+users.results[i].location.city+'</li>'+
         '</ul>'+
         '</div>';
       }
