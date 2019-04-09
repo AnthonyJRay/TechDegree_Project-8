@@ -3,7 +3,7 @@
 // Load Random Users
 function loadUsers(){
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://randomuser.me/api?results=12', true)
+  xhr.open('GET', 'https://randomuser.me/api?nat=us&results=12', true)
 
   xhr.onload = function(){
     if(this.status == 200){
@@ -13,13 +13,14 @@ function loadUsers(){
       let output = '';
       for(let i in users.results) {
         output +=
-        '<div class="user">' +
+        '<div class="'+"user "+"user-"+[i]+'">'+
         '<img class ="userImg" src=' +users.results[i].picture.large+ '>' +
         '<ul class="userInfo">'+
-        '<li>'+users.results[i].name.first+' '+users.results[i].name.last+'</li>'+
+        '<li><h4>'+users.results[i].name.first+' '+users.results[i].name.last+'</h4></li>'+
         '<li>'+users.results[i].email+'</li>'+
         '<li>'+users.results[i].location.city+'</li>'+
-        '</ul>';
+        '</ul>'+
+        '</div>';
       }
       document.getElementById('usersList').innerHTML = output;
     }

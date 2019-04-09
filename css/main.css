@@ -21,7 +21,32 @@
 }
 
 .userInfo {
-  text-align: center;
+  text-align: left;
   list-style: none;
+  margin: auto;
+}
+
+.user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Playfair Display', serif;
+  justify-self: center;
+  border: 1px black solid;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 10px;
+  width: 90%;
+}
+
+.userImg {
+  border-radius: 50%;
+  margin: 10px;
+  width: 20%;
+  height: 20%;
+}
+
+h4 {
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=main.css.map */
