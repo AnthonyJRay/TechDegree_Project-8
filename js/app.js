@@ -11,44 +11,55 @@ const modalContent = document.querySelector('.modal-content');
       let results = users.results;
       console.log(results);
 
-      
+      // Main Content
       let output = '';
-      let randomUser = '';
       for(let i in results) {
         output +=
-        '<div class="'+"user "+"user-"+[i]+'">'+
-        '<img class ="userImg" src=' +results[i].picture.large+ '>' +
-        '<ul class="userInfo">'+
-        '<li><h3>'+results[i].name.first+' '+results[i].name.last+'</h3></li>'+
-        '<li>'+results[i].email+'</li>'+
-        '<li class="city">'+results[i].location.city+'</li>'+
-        '</ul>'+
+        '<div class="user" id='          +[i]+'>'  +
+        '<img class ="userImg" src='     +results[i].picture.large+ '>' +
+        '<ul class="userInfo">'          +
+        '<li><h3>'                       +results[i].name.first+' '+results[i].name.last+'</h3></li>'+
+        '<li>'                           +results[i].email+'</li>'+
+        '<li class="city">'              +results[i].location.city+'</li>'+
+        '</ul>'                          +
         '</div>';
-        
-        // for(let i in results) {
-        //   randomUser += 
-        //   image: results[i].picture.large,
-        //   name: results[i].name.first+' '+results[i].name.last,
-        //   email: results[i].email,
-        //   cell: results[i].cell,
-        //   address: results[i].location.street+' '+results[i].location.city+','+results[i].location.state,
-        //   birthdate: results[i].dob.age
-        // // randomUsers.push(randomUser);
-        // }
+       
       };
       document.getElementById('usersList').innerHTML = output;
-      modalContent.innerHTML = output;
+        
+
+      // Modal Content
+      let randomUser = '';
+        for(let i in results) {
+          randomUser +=
+          '<div class="modal-user">'    + 
+          '<img class="modal-img" src=' + results[i].picture.large + '>' +
+          '<h4 class="modal-name">'     + results[i].name.first+' '+results[i].name.last + '</h4>' +
+          '<ul class="modal-info">'     +
+          '<li class="modal-email">'    + results[i].email + '</li>' +
+          '<li class="modal-city">'     + results[i].location.city + '</li>' +
+          '</ul>'                       +
+          '<hr>'                        +
+          '<ul class="modal-contact">'  +
+          '<li class="modal-address">'  + results[i].location.street+' '+results[i].location.city+','+results[i].location.state + '</li>'
+          '<li class="modal-cell">'     + results[i].cell + '</li>'  +
+          '<li class="modal-birthday">' + results[i].dob.age + '</li>' +
+          '</div>';
+        };
+      
+      modalContent.innerHTML = randomUser;
+
+        // Click on a card to open Modal
       const modal = document.querySelector('.modal');
       const card = document.querySelectorAll('.user');
-
-
-        for(let i = 0; i < card.length; i++){         // Loop through Nodelist
-        card[i].addEventListener('click', () => {     // Add click even to each item in Nodelist
-          modal.style.display = 'block';             // Change Modal display property to 'block'
+        for(let i = 0; i < card.length; i++){         
+        card[i].addEventListener('click', () => {     
+          modal.style.display = 'block';             
         });
-      };                                            //End of Modal Click Event
-      
-        document.getElementById('myModal').addEventListener('click', () => {  // Click anywhere to close modal
+      };                                            
+        
+      // Click anywhere to close Modal
+        document.getElementById('myModal').addEventListener('click', () => { 
           if(modal.style.display = 'block'){
             modal.style.display = 'none';
           }
