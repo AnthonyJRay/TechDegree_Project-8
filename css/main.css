@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main-header {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  text-align: center;
+  margin: 20px;
+}
+
+#usersList {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.userInfo {
+  text-align: center;
+  list-style: none;
+}
+/*# sourceMappingURL=main.css.map */
