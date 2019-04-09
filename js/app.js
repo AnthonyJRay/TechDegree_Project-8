@@ -1,7 +1,7 @@
-let randomUsers = [];
+
 const modalContent = document.querySelector('.modal-content');
 
-function loadUsers(){
+
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://randomuser.me/api?nat=us&results=12', true)
 
@@ -25,41 +25,37 @@ function loadUsers(){
         '</ul>'+
         '</div>';
         
-        
-          randomUser += {
-          image: results[i].picture.large,
-          name: results[i].name.first+' '+results[i].name.last,
-          email: results[i].email,
-          cell: results[i].cell,
-          address: results[i].location.street+' '+results[i].location.city+','+results[i].location.state,
-          birthdate: results[i].dob.age
-      };
-        randomUsers.push(randomUser);
+        // for(let i in results) {
+        //   randomUser += 
+        //   image: results[i].picture.large,
+        //   name: results[i].name.first+' '+results[i].name.last,
+        //   email: results[i].email,
+        //   cell: results[i].cell,
+        //   address: results[i].location.street+' '+results[i].location.city+','+results[i].location.state,
+        //   birthdate: results[i].dob.age
+        // // randomUsers.push(randomUser);
+        // }
       };
       document.getElementById('usersList').innerHTML = output;
+      modalContent.innerHTML = output;
       const modal = document.querySelector('.modal');
       const card = document.querySelectorAll('.user');
+
 
         for(let i = 0; i < card.length; i++){         // Loop through Nodelist
         card[i].addEventListener('click', () => {     // Add click even to each item in Nodelist
           modal.style.display = 'block';             // Change Modal display property to 'block'
-          modalContent.innerHTML = randomUsers;
         });
       };                                            //End of Modal Click Event
+      
+        document.getElementById('myModal').addEventListener('click', () => {  // Click anywhere to close modal
+          if(modal.style.display = 'block'){
+            modal.style.display = 'none';
+          }
+        });
+    
     };
-  //  for (let i =0; i < randomUsers.length; i++) {
-  //     console.log(randomUsers[i]);
-  //     modalContent.innerHTML = randomUsers[i];
-  //  }
   }
   xhr.send();
-}
-loadUsers()
-
-
-
-
-
-
 
 
