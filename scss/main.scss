@@ -17,6 +17,10 @@
   @include med {
     text-align: left;
     padding-top: 50px;
+    padding-left: 45px;
+  }
+  @include lrg {
+    padding-left: 75px;
   }
 }
 
@@ -70,7 +74,8 @@ h3 {
   text-transform: capitalize;
 }
 
-.city {
+.city,
+.modal-address {
   text-transform: capitalize;
 }
 
@@ -92,9 +97,10 @@ h3 {
   background-color: #fefefe;
   margin: 5% auto; 
   padding: 0 20px;
-  border: 1px solid #888;
-  width: 300px; 
-  height: 350px;
+  border: 2px outset #f4f4f4;
+  width: 350px; 
+  height: 400px;
+  border-radius: 5px;
 }
 /* The Close Button */
 .close {
@@ -109,4 +115,44 @@ h3 {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+// MODAL STYLING
+
+.modal-content {
+  text-align: center;
+  .userImg {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+  }
+  .userInfo li {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Merriweather', serif;
+  }
+
+  .userName {
+    font-size: 1.2em;
+  }
+
+  p {
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+.modal-address {
+  font-size: .8em;
+}
+
+#modal-hr {
+  margin: 20px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.modal-dob {
+  margin-bottom: 20px;
 }
